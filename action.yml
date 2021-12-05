@@ -6,12 +6,12 @@ inputs:
     required: true
     description: 'Github event name'
 
-env:
-  REGISTRY_NAME: corsicanec82
-  IS_PUSH: ${{ inputs.event_name == 'push' }}
-
 runs:
   using: 'composite'
+
+  env:
+    REGISTRY_NAME: corsicanec82
+    IS_PUSH: ${{ inputs.event_name == 'push' }}
 
   steps:
     - name: Set image name
