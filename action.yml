@@ -16,7 +16,7 @@ runs:
   steps:
     - run: echo "aaaaa"
       shell: bash
-    - run: echo ${{ env.REGISTRY_NAME }}
+    - run: echo ${{ inputs.REGISTRY_NAME }}
       shell: bash
     # - name: Check event is push
     #   run: |
