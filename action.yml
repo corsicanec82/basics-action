@@ -8,7 +8,7 @@ inputs:
 
 env:
   REGISTRY_NAME: corsicanec82
-  IS_PUSH: ${{ github.event_name == 'push' }}
+  # IS_PUSH: ${{ github.event_name == 'push' }}
 
 runs:
   using: 'composite'
@@ -16,7 +16,7 @@ runs:
   steps:
     - run: echo "aaaaa"
       shell: bash
-    - run: echo ${{ github.event_name }}
+    - run: echo ${{ env.REGISTRY_NAME }}
       shell: bash
     # - name: Check event is push
     #   run: |
