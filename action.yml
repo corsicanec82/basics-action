@@ -5,21 +5,18 @@ inputs:
   event_name:
     required: true
     description: 'Github event name'
-  REGISTRY_NAME:
-    required: false
-    default: corsicanec82
+
+# env:
+#     REGISTRY_NAME: corsicanec82
+#     IS_PUSH: ${{ github.event_name == 'push' }}
 
 runs:
   using: 'composite'
 
-  # env:
-  #   REGISTRY_NAME: corsicanec82
-  #   IS_PUSH: ${{ inputs.event_name == 'push' }}
-
   steps:
     - run: echo "aaaaa"
       shell: bash
-    - run: echo ${{ inputs.event_name }}
+    - run: echo ${{ github.event_name }}
       shell: bash
     # - name: Check event is push
     #   run: |
