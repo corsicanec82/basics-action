@@ -18,7 +18,9 @@ runs:
 
   steps:
     - run: echo "aaaaa"
+      shell: bash
     - run: echo ${{ inputs.event_name }}
+      shell: bash
     # - name: Check event is push
     #   run: |
     #     echo "IS_PUSH=${{ inputs.event_name == 'push' }}" >> $GITHUB_ENV
