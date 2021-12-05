@@ -1,10 +1,11 @@
 name: 'Hexlet basics exercises action'
 description: 'For build language images hexlet-basics'
 
-# inputs:
-#   event_name:
-#     required: true
-#     description: 'Github event name'
+inputs:
+  DOCKER_USERNAME:
+    required: true
+  DOCKER_PASSWORD:
+    required: true
 
 # env:
 #   REGISTRY_NAME: corsicanec82
@@ -30,8 +31,8 @@ runs:
       if: ${{ env.IS_PUSH == 'true' }}
       uses: docker/login-action@v1
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ inputs.DOCKER_USERNAME }}
+        password: ${{ inputs.DOCKER_PASSWORD }}
 
       # NOTE: But you need to download the cached image separately. Otherwise, caching works every other time.
     - name: Pull cached
