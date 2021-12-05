@@ -9,9 +9,9 @@ inputs:
 runs:
   using: 'composite'
 
-  env:
-    REGISTRY_NAME: corsicanec82
-    IS_PUSH: ${{ inputs.event_name == 'push' }}
+  # env:
+  #   REGISTRY_NAME: corsicanec82
+  #   IS_PUSH: ${{ inputs.event_name == 'push' }}
 
   steps:
     - name: Set image name
