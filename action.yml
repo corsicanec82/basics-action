@@ -6,9 +6,9 @@ inputs:
     required: true
     description: 'Github event name'
 
-# env:
-#     REGISTRY_NAME: corsicanec82
-#     IS_PUSH: ${{ github.event_name == 'push' }}
+env:
+  REGISTRY_NAME: corsicanec82
+  IS_PUSH: ${{ github.event_name == 'push' }}
 
 runs:
   using: 'composite'
