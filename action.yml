@@ -1,9 +1,14 @@
 name: 'Hexlet basics exercises action'
 description: 'For build language images hexlet-basics'
 
+inputs:
+  event_name:
+    required: true
+    description: 'Github event name'
+
 env:
   REGISTRY_NAME: corsicanec82
-  IS_PUSH: ${{ github.event_name == 'push' }}
+  IS_PUSH: ${{ inputs.event_name == 'push' }}
 
 runs:
   using: 'composite'
