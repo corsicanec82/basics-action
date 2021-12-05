@@ -37,7 +37,7 @@ runs:
       # NOTE: But you need to download the cached image separately. Otherwise, caching works every other time.
     - name: Pull cached
       run: docker pull ${{ env.IMAGE_NAME }}:cached || true
-      shell: bashh
+      shell: bash
 
     - name: Build
       uses: docker/build-push-action@v2
