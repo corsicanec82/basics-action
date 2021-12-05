@@ -5,6 +5,9 @@ inputs:
   event_name:
     required: true
     description: 'Github event name'
+  REGISTRY_NAME:
+    required: false
+    default: corsicanec82
 
 runs:
   using: 'composite'
@@ -14,9 +17,13 @@ runs:
   #   IS_PUSH: ${{ inputs.event_name == 'push' }}
 
   steps:
+    - name: Check event is push
+      run: |
+        echo "IS_PUSH=${{ inputs.event_name == 'push' }}" >> $GITHUB_ENV
     - name: Set image name
       run: |
-        echo "IMAGE_NAME=${{ env.REGISTRY_NAME }}/$(echo "$GITHUB_REPOSITORY" | cut -d/ -f2)" >> $GITHUB_ENV
+        echo "IMAGE_NAME=${{ inputs.REGISTRY_NAME }}/$(echo "$GITHUB_REPOSITORY" | cut -d/ -f2)" >> $GITHUB_ENV
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
       with:
